@@ -1,15 +1,31 @@
-﻿@{
-    Layout = null;
+﻿@model IEnumerable<Diploma.Models.Client>
+@{
+    Layout = "_Layout";
+    ViewData["Title"] = "Список клиентов";
+
 }
-<!doctype html>
-<html>
-<head>
-    <title>Hello ASP.NET MVC Core</title>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width">
-</head>
-<body>
-    <h2>Привет мир!</h2>
-</body>
-</html>
+
+    <h3>Клиенты</h3>
+    <table class="table-condensed">
+        <tr>
+            <td>ФИО</td>
+            <td>Номер паспорта</td>
+            <td>Серия паспорта</td>
+            <td>Адрес</td>
+            <td>Гражданство</td>
+            <td></td>
+        </tr>
+        @foreach (var client in Model)
+        {
+            <tr>
+                <td>@client.Name</td>
+                <td>@client.PassportId</td>
+                <td>@client.PassportSer</td>
+                <td>@client.Address</td>
+                <td>@client.CitizenShip</td>
+                <td><a href="~/Home/Buy/@client.Id">Зарегистрировать</a></td>
+            </tr>
+        }
+        </table>
+
 

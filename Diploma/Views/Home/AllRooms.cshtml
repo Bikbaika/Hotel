@@ -1,0 +1,19 @@
+﻿
+@{
+    ViewData["Title"] = "Список номеров";
+    Layout = "_Layout";
+}
+
+@model IEnumerable<Diploma.Models.Room>
+@{
+    ViewBag.Title = "Список номеров";
+}
+<a asp-action="Create">Добавить номер</a>
+<table class="table">
+    <tr><td>Номер номера</td><td>Расположение</td><td>Вид номера</td></tr>
+    @foreach (var item in Model)
+    {
+        <tr><td>@item.Id</td><td>@item.Location</td><td>@item.TypeOfRoom</td></tr>
+    }
+</table>
+
